@@ -1,61 +1,79 @@
 /* eslint-disable linebreak-style */
-import assert from 'assert';
-import chai from 'chai';
-import chaihttp from 'chai-http';
-import app from '../config/index';
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const { expect } = require('chai');
+const app = require('../config/index');
 
 const should = chai.should();
-
-chai.use(chaihttp);
-const login1 = {
-  email: 'mwafrika@gmail.com',
-  password: '123',
-  fname: 'mwafrika',
-  lname: 'josue',
-  country: 'congo',
-  address: 'rubavu',
+chai.use(chaiHttp);
+const fakeRepaymentData = {
+  amount: 'jjjjj',
 };
-const login2 = {
-  email: 'mwafrikajosue@gmail.com',
-  password: 'jos123',
-  fname: 'mwafrika',
-  lname: 'josue',
-  country: 'congo',
-  address: 'kigali',
+const correctRepaymentData = {
+  amount: '210',
 };
-
-describe('SignUp', () => {
-  it('it should not create an account with undefined values', (done) =>   {
+describe('Post a repayment transaction', () => {
+  it('it should return a 400 status when amount is  not a number', (done) => {
     chai.request(app.app)
-      .post('/v1/auth/signup')
-      .send('')
-      .end((err, res) => { // getting response from the endpoints
-        // meaning that an object should have a status of 201
+      .post('/v1/loans/0/repayment')
+      .send(fakeRepaymentData)
+      .end((err, res) => {
         res.should.have.status(400);
-        console.log(res.body.message);
+        console.log(res.body);
         done();
       });
   });
-  it('it should not create an account if the email is already taken', (done) => {
+  it('it should return a 400 status when amount is  undefined', (done) => {
     chai.request(app.app)
-      .post('/v1/auth/signup')
-      .send(loginDetails)
-      .end((err, res) => { // / getting response from the endpoints
-        // meaning that an object should have a status of 201
-        res.should.have.status(403);
-        console.log(res.body.message);
+      .post('/v1/loans/0/repayment')
+      .send('')
+      .end((err, res) => {
+        res.should.have.status(400);
+        console.log(res.body);
         done();
       });
   });
-  it('should return a 200 status and user data when information is correct', (done) => {
+  it('it should return a 400 status when the loan is not found', (done) => {
     chai.request(app.app)
-      .post('/v1/auth/signup')
-      .send(loginDetailsTrue); // getting response from the endpoints
-    // meaning that an object should have a status of 201
-    res.should.have.status(200);
-    chai.expect(JSON.parse(res.body.data).email).equal('mwafrikajosue@gmail.com');
-    console.log(JSON.parse(res.body.data));
-    done();
-    // app.closeServer();
+      .post('/v1/loans/650/repayment')
+      .send(correctRepaymentData)
+      .end((err, res) => {
+        res.should.have.status(400);
+        console.log(res.body);
+        done();
+      });
+  });
+  it('it should return a 200 status when everything is okey', (done) => {
+    chai.request(app.app)
+      .post('/v1/loans/0/repayment')
+      .send(correctRepaymentData)
+      .end((err, res) => {
+        res.should.have.status(200);
+        console.log(res.body);
+        done();
+      });
+  });
+  it('it should return a 401 status loan is already repaid', (done) => {
+    chai.request(app.app)
+      .post('/v1/loans/1/repayment')
+      .send(correctRepaymentData)
+      .end((err, res) => {
+        res.should.have.status(401);
+        console.log(res.body);
+        done();
+      });
+  });
+});
+describe('Post a repayment transaction', () => {
+  it('it should return a 200 and a list containing one repayment', (done) => {
+    chai.request(app.app)
+      .get('/v1/loans/0/repayment')
+      .send('')
+      .end((err, res) => {
+        res.should.have.status(200);
+        expect(2).to.equal(JSON.parse(res.body.data).length);
+        console.log(res.body);
+        done();
+      });
   });
 });
