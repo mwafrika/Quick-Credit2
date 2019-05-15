@@ -11,6 +11,7 @@
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module"
+<<<<<<< HEAD
     }, 
     "rules": {
         "import/no-extraneous-dependencies": ["error", 
@@ -24,4 +25,9 @@
             "eslint linebreak-style": [0, "error", "windows"]    
     }
 
+=======
+    },
+    "rules": {
+    }
+>>>>>>> dede42af372ef883993e07ed7c75d4ec4b6e34de
 }
