@@ -1,1 +1,1 @@
-"# Quick-Credit2" 
+# Quick-Credit2
