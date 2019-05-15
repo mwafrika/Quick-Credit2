@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 const express = require('express');
 const bodyParser = require('body-parser');
-const userRouter = require('../routes/routes');
+const userRouter = require('../routes/route');
 
 const app = express();
 
