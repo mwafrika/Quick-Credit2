@@ -16,7 +16,6 @@ export default class Users {
     this.address = address;
   }
 
-
   getId() {
     return this.id;
   }
