@@ -41,12 +41,13 @@ class Repayment {
 }
 const defaultRepay = new Repayment(0, '12/3/2019', 4, 500);
 const repay = [defaultRepay];
-repay.push(new Repayment(new Repayment(0, '12/3/2019', 4, 500)));
-repay.push(new Repayment(new Repayment(0, '12/3/2019', 4, 500)));
-repay.push(new Repayment(new Repayment(0, '12/3/2019', 4, 500)));
-repay.push(new Repayment(new Repayment(0, '12/3/2019', 4, 500)));
-repay.push(new Repayment(new Repayment(0, '12/3/2019', 4, 500)));
+const rep1 = repay.push(new Repayment(new Repayment(1, '12/3/2019', 4, 500)));
+const rep2 = repay.push(new Repayment(new Repayment(2, '12/3/2019', 4, 500)));
+const rep3 = repay.push(new Repayment(new Repayment(3, '12/3/2019', 4, 500)));
+const rep4 = repay.push(new Repayment(new Repayment(4, '12/3/2019', 4, 500)));
+const rep5 = repay.push(new Repayment(new Repayment(5, '12/3/2019', 4, 500)));
 
+const repayment = [defaultRepay, rep1, rep2, rep3, rep4, rep5];
 module.exports = {
-  Repayment, repay,
+  Repayment, repay, repayment,
 };
