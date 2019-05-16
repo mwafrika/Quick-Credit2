@@ -11,7 +11,7 @@ function getLoanCount() {
   // return Loans.length;
 }
 function filterByUser(email, myloans) {
-  return myloans.filter(email => loan.userMail === email);
+  return myloans.filter(email => email.userMail === email);
 }
 function getAllLoans(email) {
   if (email) return filterByUser(email, loans);
