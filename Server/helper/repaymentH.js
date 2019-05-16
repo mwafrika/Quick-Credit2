@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-const loanRepayment = require('../models/Repayment1');
+const {repayment} = require('../models/Repayment1');
 const loanHelper = require('./loansHelper');
 
 function updateLoanPayment(loanID, newAmount) {
@@ -7,18 +7,19 @@ function updateLoanPayment(loanID, newAmount) {
   loan.setBalance(loan.getBalance() - newAmount);
   return loanHelper.updateLoan(loan);
 }
-updateLoanPayment(0, loanRepayment.loanRepaymentData[0].getAmount());
+// updateLoanPayment(0, loanRepayment.loanRepaymentData[0].getAmount());
+updateLoanPayment(0, repayment[0].getAmount());
 
 function addNewLoanRepayment(newRepayment) {
-  loanRepayment.loanRepaymentData.push(newRepayment);
+  repayment.push(newRepayment);
   return updateLoanPayment(newRepayment.getLoanId(), newRepayment.getAmount());
 }
 function getRepaymentCount() {
-  return loanRepayment.loanRepaymentData.length;
+  return loanRepayment.repayment.length;
 }
 function getLoanRepayment(loanID) {
-  return loanRepayment.loanRepaymentData.filter(repayment => repayment.getLoanId().toString()
-   === loanID);
+  // return loanRepayment.repayment.filter(repayment => repayment.loanId.toString() === loanID); // changed .getLoanId() to getId
+  return repayment.filter(repayment => repayment.getLoanId === loanID);
 }
 module.exports = {
   updateLoanPayment,

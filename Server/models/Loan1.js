@@ -99,6 +99,22 @@ class Loan {
   setInterest(interest) {
     this.interest = interest;
   }
+  isRepaid() {
+    return this.repaid;
+     }
+setRepaidStatus(repaidStatus) {
+   this.repaid = repaidStatus;
+     }
+setBalance(balance) {
+this.balance = balance;
+if (balance < 0) {
+this.setRepaidStatus(true);
+this.balance = 0;
+       }
+     }
+   
+     
+   
 }
 
 const defaultLoan = new Loan(1, 'mwafrika', '12/1/2019', 'approved', true, '1 month', 500, '50/month', 600, '5%');

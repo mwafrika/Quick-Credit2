@@ -45,7 +45,7 @@
     "server": "node ./src/bin/www",
     "server:prod": "node ./dist/bin/www",
     "dev": "NODE_ENV=development npm-run-all server",
-    "clean": "rm -rf build && mkdir build",
+    "clean": "npm -rf build && mkdir build",
     "build": "npm run clean && npm run build-babel",
     "prod": "NODE_ENV=production npm-run-all clean build server:prod",
     "watch": "nodemon",

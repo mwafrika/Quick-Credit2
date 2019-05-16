@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 const { getSingleUser, getUsersCount, addUser } = require('../helper/userHelper');
-const { User } = require('../models/users1').default;
+const { Users } = require('../models/users1');
 const replacerJson = require('../helper/indexH.js');
 
 // Parse incoming requests data
@@ -19,7 +19,7 @@ function signup(req, res) {
   } else {
     const user = getSingleUser(req.body.email);
     if (!user[0]) {
-      const newUser = new User(getUsersCount, req.body.email, req.body.fname,
+      const newUser = new Users(getUsersCount, req.body.email, req.body.fname,
         req.body.lname, req.body.password, req.body.address, req.body.country, 'unverified', false);
       addUser(newUser);
       res.status(200).send({

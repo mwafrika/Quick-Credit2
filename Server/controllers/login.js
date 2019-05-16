@@ -1,8 +1,9 @@
 /* eslint-disable linebreak-style */
 const loanHelper = require('../helper/userHelper');
 const replacerJson = require('../helper/indexH.js');
+import {router} from '../routes/route';
 
-function login(req, res) {
+export function login(req, res) {
   if (!req.body.email) {
     res.status(400).send({
       success: 'false',
@@ -37,4 +38,4 @@ function login(req, res) {
   }
   return res;
 }
-module.exports = login;
+// module.exports = login;

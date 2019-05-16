@@ -1,21 +1,25 @@
 /* eslint-disable linebreak-style */
-const userData = require('../models/users1').default;
+// const userData = require('../models/users1').default;
+import {Users, users} from '../models/users1';
+// const Users = require('Users');
+// const users = require('users');
 
 function getUsers() {
-  return userData.users;
+  return users;
+  
 }
 
-const getUsersCount = userData.users.length;
+const getUsersCount = users.length;
 
 const addUser = (user) => {
-  userData.users.push(user);
+  users.push(user);
 };
 function getSingleUser(email) {
-  return userData.users.filter(user => user.email === email);
+  return users.filter(user => users.email === email);
 }
 function updateUser(user) {
-  userData.users[user.getUserID()] = user;
-  return userData.users[user.getUserID()];
+  users[Users.getUserID] = user;
+  return users[user];
 }
 module.exports = {
   getUsers,

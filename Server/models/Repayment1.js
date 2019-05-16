@@ -51,3 +51,4 @@ const repayment = [defaultRepay, rep1, rep2, rep3, rep4, rep5];
 module.exports = {
   Repayment, repay, repayment,
 };
+

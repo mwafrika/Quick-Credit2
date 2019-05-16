@@ -11,7 +11,7 @@ const loanRepaymentHelper = require('../helper/repaymentH');
 function addPayment(req, res) {
   const loan = loanHelper.getSingleLoan(req.params.loanID);
   if (loan) {
-    if (!(loan.isRepaid())) {
+    if (!(loan.isRepaid())){
       if (req.body.amount && (!isNaN(req.body.amount))) {
         const tenorCovered = Number.parseFloat(req.body.amount) / loan.getPaymentInstallment();
         const newRepayment = new LoanRepayment.LoanRepayment(loanRepaymentHelper.getRepaymentCount(), loan.getID(), req.body.amount, tenorCovered);
