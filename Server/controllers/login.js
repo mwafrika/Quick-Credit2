@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
-const loanHelper = require('../helper/userH');
-const replacerJson = require('../helper/indexH');
+const loanHelper = require('../helper/userHelper');
+const replacerJson = require('../helper/indexH.js');
 
 function login(req, res) {
   if (!req.body.email) {

@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 const { getSingleUser, getUsersCount, addUser } = require('../helper/userHelper');
-const { User } = require('../').default;
-const replacerJson = require('../helper/jsonHideProperty');
+const { User } = require('../models/users1').default;
+const replacerJson = require('../helper/indexH.js');
 
 // Parse incoming requests data
 function signup(req, res) {
