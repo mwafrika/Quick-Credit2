@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-const loanRepayment = require('../model/LoanRepayment');
+const loanRepayment = require('../models/Repayment1');
 const loanHelper = require('./loansHelper');
 
 function updateLoanPayment(loanID, newAmount) {

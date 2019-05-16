@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable linebreak-style */
-const jwt = require('jsonwebtoken');
+const jwt = require('Jsonwebtoken');
 
 export default class Users {
   constructor(id, firstName, lastName, emails, password, Country, status, isAdmin, address) {
