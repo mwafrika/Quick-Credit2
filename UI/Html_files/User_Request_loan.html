@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css_files/admin.css"> -->
+  <link rel="stylesheet" type="text/css" href="util.css">
+  <link rel="stylesheet" type="text/css" href="login1.css">
+  <link rel="stylesheet" href="../css_files/admin.css">
+  <link rel="stylesheet" href="../css_files/post_loan_repayement.css" type="text/css">
+  <link rel="stylesheet" href="../css_files/User_request_loan.css" type="text/css">
+  
+</head>
+
+<body>
+<header class="myheader" id="toolbar">
+
+  <div class="open-nav">&#9776;</div>
+  <div class="myTitle">Quick Credit</div>
+  <form>
+    <input type="text" placeholder="Search a loan by date..." required>
+    <img src="../images/search.png" alt="" class="imgS">
+  </form>
+  <div class="notify" id="pictures">
+    <img src="../images/notification.png" alt="" class="img1">
+    <img src="../images/boss.png" alt="" class="img2">
+    <img src="../images/group.png" alt="" class="img3">
+  </div>
+
+</header>
+
+  <div id="mySidenav" class="sidenav" data-state="closed">
+    <a href="User_Request_loan.html">Request For A Loan</a>
+    <a href="User_Story.html">User Repayement Histoty</a>
+  </div>
+
+<div id="main2">
+
+  <!-- <form class="form_content"> -->
+
+      <div class="myForm">
+          <form  class="post_form" action="" method="post"> 
+              <b class="label">Request A Loan</b><br/><br/>
+          <div class="textFields">
+           <div class="text1"><input type="text" placeholder="Load ID" required> </div> 
+           <div class="text1"><input type="text" placeholder="Full Name" required></div> 
+           <div class="text1"><input type="number" placeholder="E-mail" required> </div>
+           <div class="text1"><input type="text" placeholder="Balance" required></div>
+           <div class="text1"><input type="text" placeholder="Interest" required> </div> 
+           <div class="text1"><input type="number" placeholder="Tenor" required> </div>
+        <div class="text1"><input type="number" placeholder="Installment Payement" required></div>
+           <div class="text1" id="datepicker"><input type="date" id="datepicker" required/></div>
+          </div> 
+          <div id="btn"><button class="btn_post">SUBMIT</button></div>
+            </form>
+          </div>
+      
+          
+  <!-- </form> -->
+    
+    </div>
+    
+    <script src="../javascript_files/admin.js"></script>
+    <script src="../javascript_files/post_loan_repayement.js"></script>
+</body>
+<footer>
+  <h3 >contact us to </h3>
+  <div class="container">
+    <div class="images">
+      <span id="social"><img src="../images/linkedin (1).png"></img></span>
+    <span id="social"><img src="../images/twitter.png"></img></span>
+    <span id="social"><img src="../images/facebook _2.png"></img></span>
+    </div>
+    <div class="support">
+      <a href="#"><h3>about us</h3></a>
+      <a href="#"><h3>support us</h3></a>
+      <a href="#"><h3>send us feedback</h3></a>
+    </div>
+  </div>
+  
+</footer>
+</html>
