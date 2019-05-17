@@ -23,11 +23,9 @@ const jwt = require('Jsonwebtoken');
   setId(id) {
     this.id = id;
   }
-
   getFirstName() {
     return this.firstName;
   }
-
   setFirstName(firstName) {
     this.firstName = firstName;
   }

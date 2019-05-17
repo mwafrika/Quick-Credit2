@@ -11,6 +11,7 @@ function signup(req, res) {
   else if (!req.body.lname)errorMessage = 'The last name is not defined';
   else if (!req.body.address)errorMessage = 'the address is not defined';
   else if (!req.body.country)errorMessage = 'The country does not exist';
+  else if(!req.body.password)errorMessage = 'the password is required';
   if (errorMessage) {
     res.status(400).send({
       status: 400,

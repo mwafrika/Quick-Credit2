@@ -13,11 +13,11 @@
   "scripts": {
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./server -s",
-    "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha  --exit server/tests/*js ",
+  "test": "nyc --reporter=text --reporter=lcov mocha --require @babel/register Server/test/*js --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && node build/config",
-    "serve": "node dist/config/index"
+    "start": "nodemon --exec babel-node Server/config/index.js",
+    "serve": "node ../config/index"     
   },
   "keywords": [],
   "author": "",

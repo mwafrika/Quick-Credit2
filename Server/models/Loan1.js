@@ -119,12 +119,12 @@ this.balance = 0;
 
 const defaultLoan = new Loan(1, 'mwafrika', '12/1/2019', 'approved', true, '1 month', 500, '50/month', 600, '5%');
 const myLoans = [defaultLoan];
-myLoans.push(new Loan(1, 'mwafrika', '12/1/2019', 'approved', true, '1 month', 500, '50/month', 600, '5%'));
-myLoans.push(new Loan(1, 'mwafrika', '12/1/2019', 'approved', true, '1 month', 500, '50/month', 600, '5%'));
-myLoans.push(new Loan(1, 'mwafrika', '12/1/2019', 'approved', true, '1 month', 500, '50/month', 600, '5%'));
-myLoans.push(new Loan(1, 'mwafrika', '12/1/2019', 'approved', true, '1 month', 500, '50/month', 600, '5%'));
-myLoans.push(new Loan(1, 'mwafrika', '12/1/2019', 'approved', true, '1 month', 500, '50/month', 600, '5%'));
-myLoans.push(new Loan(1, 'mwafrika', '12/1/2019', 'approved', true, '1 month', 500, '50/month', 600, '5%'));
+myLoans.push(new Loan(2, 'mwafrika', '12/1/2019', 'approved', true, '1 month', 500, '50/month', 600, '5%'));
+myLoans.push(new Loan(3, 'mwafrika', '12/1/2019', 'rejected',false, '1 month', 500, '50/month', 600, '5%'));
+myLoans.push(new Loan(4, 'mwafrika', '12/1/2019', 'approved', true, '1 month', 500, '50/month', 600, '5%'));
+myLoans.push(new Loan(5, 'mwafrika', '12/1/2019', 'rejected', false, '1 month', 500, '50/month', 600, '5%'));
+myLoans.push(new Loan(6, 'mwafrika', '12/1/2019', 'approved', true, '1 month', 500, '50/month', 600, '5%'));
+myLoans.push(new Loan(7, 'mwafrika', '12/1/2019', 'approved', true, '1 month', 500, '50/month', 600, '5%'));
 
 module.exports = {
   Loan, myLoans,

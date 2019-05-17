@@ -1,9 +1,10 @@
 /* eslint-disable linebreak-style */
-const loanHelper = require('../helper/userHelper');
-const replacerJson = require('../helper/indexH.js');
-import {router} from '../routes/route';
 
-export function login(req, res) {
+import {getSingleUser} from '../helper/userHelper'
+import replacerJson from '../helper/indexH.js'
+import { getSingleLoan } from '../helper/loansHelper';
+
+ export const login = (req,res) =>{
   if (!req.body.email) {
     res.status(400).send({
       success: 'false',
@@ -15,7 +16,8 @@ export function login(req, res) {
       message: 'the password is required',
     });
   } else {
-    const user = loanHelper.getSingleUser(req.body.email);
+    const user = getSingleUser(req.body.email);
+    
     if (user[0]) {
       console.log(req.body.email);
       if (user[0].validatePassword(req.body.password)) {
@@ -37,5 +39,7 @@ export function login(req, res) {
     }
   }
   return res;
-}
+  }
+  
+
 // module.exports = login;

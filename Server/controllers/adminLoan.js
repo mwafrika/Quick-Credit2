@@ -3,7 +3,8 @@ const {
   getCurrentLoans, getRepaidLoans, getAllLoans, getSingleLoan, updateLoan,
 } = require('../helper/loansHelper');
 
-function getloans(req, res) {
+export const getloans = (req, res) =>{
+
   if (req.query.status === 'approved' && req.query.repaid === 'false') {
     res.status(200).send({
       status: 200,
@@ -21,7 +22,8 @@ function getloans(req, res) {
     });
   }
 }
-function getSpecificLoan(req, res) {
+
+export const getSpecificLoan =(req, res) =>{
   const { loanID } = req.params;
   if (loanID) {
     const loan = getSingleLoan(loanID);
@@ -43,7 +45,8 @@ function getSpecificLoan(req, res) {
     });
   }
 }
-function approveLoan(req, res) {
+
+export const approveLoan=(req, res) =>{
   const loan = getSingleLoan(req.params.loanID);
   if (loan) {
     if (loan.status === 'approved') {
@@ -76,9 +79,3 @@ function approveLoan(req, res) {
     });
   }
 }
-
-module.exports = {
-  getSpecificLoan,
-  approveLoan,
-  getloans,
-};

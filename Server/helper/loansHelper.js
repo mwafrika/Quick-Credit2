@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 const { Loans , myLoans} = require('../models/Loan1');
-
+const loans = myLoans;
 function updateLoan(loan) {
   
   myLoans[loan.id] = loan;

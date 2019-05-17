@@ -12,13 +12,13 @@ import { addPayment, getRepayments } from '../controllers/repaymentController';
 
 const router = express.Router();
 router.post('/v1/auth/signin', login);
-router.post('/v1/auth/signup', signup);
+router.post('/v1/auth/signup', signup); // very good
 router.patch('/v1/users/:userEmail/verify', verify);
 router.get('/v1/loans/user/:email/', getUserLoan);
-router.post('/v1/loans/', addNewLoan);
-router.get('/v1/loans', getloans);
-router.get('/v1/loans/:loanID', getSpecificLoan);
-router.patch('/v1/loans/:loanID', approveLoan);
+router.post('/v1/loans/', addNewLoan); // work well
+router.get('/v1/loans', getloans); // to get all loans
+router.get('/v1/loans/:loanID', getSpecificLoan); // work very well
+router.patch('/v1/loans/:loanID', approveLoan);  // 
 router.post('/v1/loans/:loanID/repayment', addPayment);
 router.get('/v1/loans/:loanID/repayment', getRepayments);
 
