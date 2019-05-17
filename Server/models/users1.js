@@ -92,7 +92,7 @@ const jwt = require('Jsonwebtoken');
   }
 }
 // const users=[]; 
-const admin = new Users(1, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', 'josmwa', 'congo', 'approved', true);
+const admin = new Users(0, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', 'josmwa', 'congo', 'approved', true);
 const user1 = new Users(1, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', 'josmwa', 'congo', 'approved', false);
 const user2 = new Users(2, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', 'josmwa', 'congo', 'approved', false);
 const user3 = new Users(3, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', 'josmwa', 'congo', 'approved', false);

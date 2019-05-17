@@ -12,10 +12,10 @@ updateLoanPayment(0, repayment[0].getAmount());
 
 function addNewLoanRepayment(newRepayment) {
   repayment.push(newRepayment);
-  return updateLoanPayment(newRepayment.getLoanId(), newRepayment.getAmount());
+  return updateLoanPayment(newRepayment.loanId, newRepayment.getAmount());
 }
 function getRepaymentCount() {
-  return loanRepayment.repayment.length;
+  return repayment.length;
 }
 function getLoanRepayment(loanID) {
   

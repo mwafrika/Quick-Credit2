@@ -20,12 +20,12 @@ function signup(req, res) {
   } else {
     const user = getSingleUser(req.body.email);
     if (!user[0]) {
-      const newUser = new Users(getUsersCount, req.body.email, req.body.fname,
-        req.body.lname, req.body.password, req.body.address, req.body.country, 'unverified', false);
+      const newUser = new Users(getUsersCount, req.body.fname, req.body.lname, req.body.email,
+         req.body.password, 'unverified',false, req.body.address );
       addUser(newUser);
       res.status(200).send({
         status: 200,
-        data: JSON.stringify(getSingleUser(newUser.email)[0], replacerJson),
+        data: JSON.stringify(newUser, replacerJson),
       });
     } else {
       res.status(403).send({

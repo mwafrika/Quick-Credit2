@@ -17,10 +17,10 @@ import { getSingleLoan } from '../helper/loansHelper';
     });
   } else {
     const user = getSingleUser(req.body.email);
-    
+    console.log(user);
     if (user[0]) {
       console.log(req.body.email);
-      if (user[0].validatePassword(req.body.password)) {
+      if (user[0].password === req.body.password) {
         res.status(200).send({
           status: 200,
           data: JSON.stringify(user[0], replacerJson),

@@ -11,11 +11,13 @@ export const getUsers= () =>{
 export const getUsersCount = users.length;
 
 export const addUser = (user) => {
-  users.push(user);
+user.id = users.length;
+ const result =  users.push(user);
 };
 
 export const getSingleUser = (email) =>{
-   return users.filter(user => users.email === email);
+  console.log(users);
+   return users.filter(user => user.emails === email);
  }
 export const updateUser = (user) =>{
   users[Users.getUserID] = user;

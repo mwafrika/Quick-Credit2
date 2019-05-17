@@ -42,18 +42,20 @@ describe('Get current loans spec', () => {
         done();
       });
   });
+
   it('it should return the current loans of mwafrikajosue@gmail.com', (done) => {
     chai.request(app.app)
       .get('/v1/loans/user/mwafrikajosue@gmail.com/?status=approved&repaid=false')
       .send('')
       .end((err, res) => {
         res.should.have.status(200);
-        expect(1).to.be.equal(JSON.parse(res.body.data).length);
+        expect(0).to.be.equal(JSON.parse(res.body.data).length);
         console.log(res.body);
         done();
       });
   });
 });
+
 describe('Get all repaid loans specs', () => {
   it('it should return all the repaid loans', (done) => {
     chai.request(app.app)

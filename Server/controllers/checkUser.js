@@ -10,6 +10,7 @@ function verify(req, res) {
       if (user) {
         user.setStatus('verified');
         const newUser = updateUser(user);
+        console.log(user);
         res.status(200).send({
           status: 200,
           data: JSON.stringify(newUser),
