@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
 /* eslint-disable camelcase */
@@ -48,7 +49,7 @@ describe('login', () => {
       .send(loginDetailsTrue)
       .end((err, res) => {
         res.should.have.status(200);
-        chai.expect(JSON.parse(res.body.data).email).equal('mwafrikajosue@gmail.com');
+        chai.expect(JSON.parse(res.body.data).emails).equal('mwafrikajosue@gmail.com');
         console.log(JSON.parse(res.body.data));
         done();
       });

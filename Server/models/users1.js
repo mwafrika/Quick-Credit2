@@ -92,10 +92,10 @@ const jwt = require('Jsonwebtoken');
   }
 }
 // const users=[]; 
-const admin = new Users(0, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', 'josmwa', 'congo', 'approved', true);
-const user1 = new Users(1, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', 'josmwa', 'congo', 'approved', false);
-const user2 = new Users(2, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', 'josmwa', 'congo', 'approved', false);
-const user3 = new Users(3, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', 'josmwa', 'congo', 'approved', false);
+const admin = new Users(0, 'mwafrika', 'mufungizi', 'mwafrikajosue@gmail.com', '123', 'congo', 'approved', true);
+const user1 = new Users(1, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', '123', 'congo', 'approved', false);
+const user2 = new Users(2, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', '123', 'congo', 'approved', false);
+const user3 = new Users(3, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', '123', 'congo', 'approved', false);
  export const users = [admin, user1, user2, user3];
 // const users = new Users();
 // export default users;

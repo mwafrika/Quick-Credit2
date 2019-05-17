@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 
 /* eslint-disable no-console */
 /* eslint-disable linebreak-style */
@@ -14,7 +15,7 @@ chai.use(chaiHttp);
 
 
 const loginDetails = {
-  email: 'josue@gmail.com',
+  email: 'mwafrikajosue@gmail.com',
   password: '12345678',
   fname: 'josue',
   lname: 'josh',
@@ -23,7 +24,7 @@ const loginDetails = {
   city: 'kampala',
 };
 const loginDetailsTrue = {
-  email: 'mwafrikajosue@gmail.com',
+  email: 'mwafrikajosu@gmail.com',
   password: '123',
   fname: 'josue',
   lname: 'josue',
@@ -61,7 +62,7 @@ describe('Signup', () => {
  .end((err, res) => {
         res.should.have.status(200);
        
- chai.expect(JSON.parse(res.body.data).email).equal('mwafrikajosue@gmail.com');
+ chai.expect(JSON.parse(res.body.data).emails).equal('mwafrikajosu@gmail.com');
     
     console.log(JSON.parse(res.body.data));
         done();
