@@ -1,20 +1,20 @@
 
-# QUICK CREDIT
-==============
+QUICK CREDIT
+
 
 for this project, we designed a quick credit web application for an online loan lending in order to help those people with lower funding and disabilities of advancing in their respective business, it helps them to increase their business income.
 - we provide loan based on some conditions.
 - before we grant the loan to client he must first set his/her work address and Home where he/she lives.
 
-#Information to Login
-======================
+Information to Login
+
 
 - for this UI we didn't provide Password and username condition to log in the system. 
 - If you are a user you need only to click a "Client" button to be directed to the client pannel.
 - If you are the Admin you are required only to click the buttun "Admin" to get access to the Admin Interface.
 
-#Information about Registration
-================================
+Information about Registration
+
 
 - A new users or clients of the system are required to create an account to get access to the system.
 he will need to provide :
@@ -26,7 +26,7 @@ he will need to provide :
 - reenter the passord to confirm.
 
 #Admin Dashboard
-================
+
 
 once the admin has logged in the system, he will have first access to:
 - all loan list and specific details.
@@ -40,10 +40,11 @@ once the admin has logged in the system, he will have first access to:
 4) Admin can mark client as verified: after checking all necessary information of the user after seeing the details.
 5) Admin can post a loan in favour the client,so that the user can be informed about the payment instructions
 
-# Client
-=========
+Client
+
 this project covers many  features, amongo them we have :
-# a client is able to request for a loan:
+
+a client is able to request for a loan:
 
  to request for a loan a user must fill out all necessary information to be granted the loan
  1) Loan ID
@@ -66,25 +67,26 @@ this project covers many  features, amongo them we have :
  7) interest
  8) Date request  
  
-# links for the project
 
-github pages:
-============
+<h2>links for the project</h2>
+
+#github pages:
+
 https://mwafrika.github.io/Quick_credit1/UI
 
-Heroku link
-============
+#Heroku link
+
 https://dashboard.heroku.com/apps/quick-credit-andela-challenge/deploy/github
 
-Apiary web link
-================
+#Apiary web link
+
 https://quickcredit14.docs.apiary.io/#/reference
 
-github link :
-=============
+#github link :
+
 https://github.com/mwafrika/Quick-Credit2
 
-pivotal tracker link:
-=====================
+#pivotal tracker link:
+
 https://www.pivotaltracker.com/n/projects/2328100
 
