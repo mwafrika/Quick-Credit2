@@ -1,0 +1,16 @@
+language: node_js
+
+node_js:
+- node
+- 'lts/*'
+after_success :npm run coverage
+# - "stable"
+# script: gulp bg-travisConfig
+
+#  script: 
+#  - npm run lint
+#  - npm run test:coveralls
+
+#   notifications:
+#     email:false
+

@@ -2,7 +2,7 @@
 const {
   getCurrentLoans, getRepaidLoans, getAllLoans, addUserLoan, getLoanCount,
 } = require('../helper/loansHelper');
-const { getSingleUser } = require('../helper/userHelper');
+const { getSingleUser } = require('../helper/userHelper.js');
 
 
 const Loan = require('../models/Loan1');
