@@ -3,7 +3,7 @@ import Router from 'express';
 import express from 'express';
 import signup from '../controllers/signup';
 
-import {login} from '../controllers/login';
+import { login } from '../controllers/login';
 import verify from '../controllers/checkUser';
 import { getUserLoan, addNewLoan } from '../controllers/Userloan';
 

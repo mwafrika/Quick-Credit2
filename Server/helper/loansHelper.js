@@ -1,8 +1,8 @@
 /* eslint-disable linebreak-style */
-const { Loans , myLoans} = require('../models/Loan1');
+const { Loans, myLoans } = require('../models/Loan1');
+
 const loans = myLoans;
 function updateLoan(loan) {
-  
   myLoans[loan.id] = loan;
   return myLoans[loan.id];
 }
@@ -35,7 +35,7 @@ function getRepaidLoans(email) {
   return getApprovedLoans(email).filter(loan => loan.isRepaid() === true);
 }
 function getPendingLoans(email) {
-  if (email) return (email, filterByUser(email,myLoans.filter(loan => loan.getStatus() === 'pending')));
+  if (email) return (email, filterByUser(email, myLoans.filter(loan => loan.getStatus() === 'pending')));
   return myLoans.filter(loan => loan.getStatus() === 'pending');
 }
 function getDeniedLoans(email) {

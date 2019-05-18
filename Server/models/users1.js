@@ -2,9 +2,9 @@
 /* eslint-disable linebreak-style */
 const jwt = require('Jsonwebtoken');
 
- export class Users {
+export class Users {
   constructor(id, firstName, lastName, emails, password, Country, status, isAdmin, address) {
-   // this.jwt = jwt();
+    // this.jwt = jwt();
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -16,16 +16,18 @@ const jwt = require('Jsonwebtoken');
     this.address = address;
   }
 
-   getId() {
+  getId() {
     return this.id;
   }
 
   setId(id) {
     this.id = id;
   }
+
   getFirstName() {
     return this.firstName;
   }
+
   setFirstName(firstName) {
     this.firstName = firstName;
   }
@@ -91,12 +93,12 @@ const jwt = require('Jsonwebtoken');
     return true;
   }
 }
-// const users=[]; 
+// const users=[];
 const admin = new Users(0, 'mwafrika', 'mufungizi', 'mwafrikajosue@gmail.com', '123', 'congo', 'approved', true);
 const user1 = new Users(1, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', '123', 'congo', 'approved', false);
 const user2 = new Users(2, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', '123', 'congo', 'approved', false);
 const user3 = new Users(3, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', '123', 'congo', 'approved', false);
- export const users = [admin, user1, user2, user3];
+export const users = [admin, user1, user2, user3];
 // const users = new Users();
 // export default users;
 //  "clean": "rm -rf build && mkdir build"

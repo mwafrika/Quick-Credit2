@@ -46,7 +46,8 @@ export const getSpecificLoan =(req, res) =>{
   }
 }
 
-export const approveLoan=(req, res) =>{
+export const approveLoan=(req, res) =>
+{
   const loan = getSingleLoan(req.params.loanID);
   if (loan) {
     if (loan.status === 'approved') {

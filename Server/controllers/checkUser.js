@@ -10,6 +10,7 @@ function verify(req, res) {
       if (user) {
         user.setStatus('verified');
         const newUser = updateUser(user);
+        // eslint-disable-next-line no-console
         console.log(user);
         res.status(200).send({
           status: 200,

@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-const {repayment} = require('../models/Repayment1');
+const { repayment } = require('../models/Repayment1');
 const loanHelper = require('./loansHelper');
 
 function updateLoanPayment(loanID, newAmount) {
@@ -18,7 +18,6 @@ function getRepaymentCount() {
   return repayment.length;
 }
 function getLoanRepayment(loanID) {
-  
   return repayment.filter(repayment => repayment.getLoanId === loanID);
 }
 module.exports = {
@@ -27,3 +26,9 @@ module.exports = {
   getRepaymentCount,
   getLoanRepayment,
 };
+// export function r() {
+//   updateLoanPayment,
+//   addNewLoanRepayment,
+//   getRepaymentCount,
+//   getLoanRepayment,
+// }
