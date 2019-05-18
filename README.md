@@ -74,7 +74,7 @@ a client is able to request for a loan:
 
 #github pages:
 
-https://mwafrika.github.io/Quick_credit1/UI
+https://mwafrika.github.io/Quick-Credit2/UI/
 
 #Heroku link
 
