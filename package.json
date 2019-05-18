@@ -1,4 +1,15 @@
 {
+<<<<<<< HEAD
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+=======
   "name": "ui",
   "version": "1.0.0",
   "description": "",
@@ -55,4 +66,5 @@
     "mocha": "^6.1.4",
     "uuid": "^3.3.2"
   }
+>>>>>>> develop
 }
