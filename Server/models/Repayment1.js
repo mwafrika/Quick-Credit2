@@ -47,8 +47,7 @@ repay.push(new Repayment(new Repayment(3, '12/3/2019', 4, 500)));
 repay.push(new Repayment(new Repayment(4, '12/3/2019', 4, 500)));
 repay.push(new Repayment(new Repayment(5, '12/3/2019', 4, 500)));
 
-const repayment = [defaultRepay,repay];
+const repayment = [defaultRepay, repay];
 module.exports = {
   Repayment, repay, repayment,
 };
-
