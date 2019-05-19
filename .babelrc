@@ -1,9 +1,17 @@
 {
   "presets": ["@babel/preset-env"],
-  "env":{
-"test":{
-  "plugins":["stanbul"]
-}
-  }
+  
+    "env": {
+      "test": {
+        "plugins": [
+          ["istanbul", {
+            "exclude": [
+              "**/*.spec.js"
+            ]
+          }]
+        ]
+      }
+    }
+  
   }
 
