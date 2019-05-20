@@ -1,31 +1,30 @@
 /* eslint-disable linebreak-style */
-const {
+
+import {
   getCurrentLoans, getRepaidLoans, getAllLoans, addUserLoan, getLoanCount,
-} = require('../helper/loansHelper');
-const { getSingleUser } = require('../helper/userHelper');
+} from '../helper/loansHelper';
+import { getSingleUser } from '../helper/userHelper';
+import { Loan } from '../models/Loan1';
 
-
-const Loan = require('../models/Loan1');
-
-function getUserLoan(req, res) {
+export const getUserLoan = (req, res) => {
   if (req.query.status === 'approved' && req.query.repaid === 'false') {
     res.status(200).send({
       status: 200,
-      data: JSON.stringify(getCurrentLoans(req.params.email)),
+      data: getCurrentLoans(req.params.email),
     });
   } else if (req.query.status === 'approved' && req.query.repaid === 'true') {
     res.status(200).send({
       status: 200,
-      data: JSON.stringify(getRepaidLoans(req.params.email)),
+      data: getRepaidLoans(req.params.email),
     });
   } else {
     res.status(200).send({
       status: 200,
-      data: JSON.stringify(getAllLoans(req.params.email)),
+      data: getAllLoans(req.params.email),
     });
   }
-}
-function addNewLoan(req, res) {
+};
+export const addNewLoan = (req, res) => {
   let errorMessage = '';
   let status = 400;
   if (!req.body.userMail) errorMessage = 'Bad request, Please provide the user email';
@@ -46,7 +45,7 @@ function addNewLoan(req, res) {
 
       res.status(200).send({
         status: 200,
-        data: JSON.stringify(newLoan),
+        data: newLoan,
       });
     }
   }
@@ -56,8 +55,4 @@ function addNewLoan(req, res) {
       error: errorMessage,
     });
   }
-}
-module.exports = {
-  getUserLoan,
-  addNewLoan,
 };

@@ -1,10 +1,12 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable linebreak-style */
 /* eslint-disable no-console */
 /* eslint-disable linebreak-style */
-import router from '../routes/route';
 
-const express = require('express');
-const bodyParser = require('body-parser');
+import express from 'express';
+import bodyParser from 'body-parser';
+import router from '../routes/route';
 
 const app = express();
 
@@ -17,7 +19,7 @@ const server = app.listen(port, () => {
   console.log(`listening to the port ${port}`);
 });
 
-function closeServer() {
+export function closeServer() {
   server.close();
 }
 module.exports = {

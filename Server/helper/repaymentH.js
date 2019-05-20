@@ -1,11 +1,15 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable linebreak-style */
+/* eslint-disable no-shadow */
+/* eslint-disable linebreak-style */
 const { repayment } = require('../models/Repayment1');
-const loanHelper = require('./loansHelper');
+const loansHelper = require('./loansHelper');
 
 function updateLoanPayment(loanID, newAmount) {
-  const loan = loanHelper.getSingleLoan(loanID);
+  const loan = loansHelper.getSingleLoan(loanID);
   loan.setBalance(loan.getBalance() - newAmount);
-  return loanHelper.updateLoan(loan);
+  return loansHelper.updateLoan(loan);
 }
 // updateLoanPayment(0, loanRepayment.loanRepaymentData[0].getAmount());
 updateLoanPayment(0, repayment[0].getAmount());
@@ -20,15 +24,9 @@ function getRepaymentCount() {
 function getLoanRepayment(loanID) {
   return repayment.filter(repayment => repayment.getLoanId === loanID);
 }
-module.exports = {
+export const loanRepaymentHelper = {
   updateLoanPayment,
   addNewLoanRepayment,
   getRepaymentCount,
   getLoanRepayment,
 };
-// export function r() {
-//   updateLoanPayment,
-//   addNewLoanRepayment,
-//   getRepaymentCount,
-//   getLoanRepayment,
-// }
