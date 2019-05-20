@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-dupe-class-members */
 /* eslint-disable linebreak-style */
 /* eslint-disable max-len */
@@ -7,7 +8,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable linebreak-style */
 
-class Loan {
+export class Loan {
   constructor(id, user, createOn, status, repaid, tenor, amount, paymentInstallment, balance, interest) {
     this.id = id;
     this.user = user;
@@ -119,7 +120,7 @@ class Loan {
 }
 
 const defaultLoan = new Loan(1, 'mwafrika', '12/1/2019', 'approved', true, '1 month', 500, '50/month', 600, '5%');
-const myLoans = [defaultLoan];
+export const myLoans = [defaultLoan];
 myLoans.push(new Loan(2, 'mwafrika', '12/1/2019', 'approved', true, '1 month', 500, '50/month', 600, '5%'));
 myLoans.push(new Loan(3, 'mwafrika', '12/1/2019', 'rejected', false, '1 month', 500, '50/month', 600, '5%'));
 myLoans.push(new Loan(4, 'mwafrika', '12/1/2019', 'approved', true, '1 month', 500, '50/month', 600, '5%'));

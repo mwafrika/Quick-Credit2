@@ -1,36 +1,40 @@
 /* eslint-disable linebreak-style */
-const {
-  getCurrentLoans, getRepaidLoans, getAllLoans, getSingleLoan, updateLoan,
-} = require('../helper/loansHelper');
 
-export const getloans = (req, res) =>{
+import {
+  getCurrentLoans,
+  getRepaidLoans,
+  getAllLoans,
+  getSingleLoan,
+  updateLoan,
+} from '../helper/loansHelper';
 
+export const getloans = (req, res) => {
   if (req.query.status === 'approved' && req.query.repaid === 'false') {
     res.status(200).send({
       status: 200,
-      data: JSON.stringify(getCurrentLoans()),
+      data: getCurrentLoans(),
     });
   } else if (req.query.status === 'approved' && req.query.repaid === 'true') {
     res.status(200).send({
       status: 200,
-      data: JSON.stringify(getRepaidLoans()),
+      data: getRepaidLoans(),
     });
   } else {
     res.status(200).send({
       status: 200,
-      data: JSON.stringify(getAllLoans()),
+      data: getAllLoans(),
     });
   }
-}
+};
 
-export const getSpecificLoan =(req, res) =>{
+export const getSpecificLoan = (req, res) => {
   const { loanID } = req.params;
   if (loanID) {
     const loan = getSingleLoan(loanID);
     if (loan) {
       res.status(200).send({
         status: 200,
-        data: JSON.stringify(loan),
+        data: loan,
       });
     } else {
       res.status(400).send({
@@ -44,10 +48,9 @@ export const getSpecificLoan =(req, res) =>{
       error: 'Bad request, please provide the loan ID = ',
     });
   }
-}
+};
 
-export const approveLoan=(req, res) =>
-{
+export const approveLoan = (req, res) => {
   const loan = getSingleLoan(req.params.loanID);
   if (loan) {
     if (loan.status === 'approved') {
@@ -59,13 +62,13 @@ export const approveLoan=(req, res) =>
       loan.status = 'approved';
       res.status(200).send({
         status: 200,
-        data: JSON.stringify(updateLoan(loan)),
+        data: updateLoan(loan),
       });
     } else if (req.body.status === 'rejected') {
       loan.status = 'rejected';
       res.status(200).send({
         status: 200,
-        data: JSON.stringify(updateLoan(loan)),
+        data: updateLoan(loan),
       });
     } else {
       res.status(400).send({
@@ -79,4 +82,4 @@ export const approveLoan=(req, res) =>
       error: 'Bad request, this loan does not exist ',
     });
   }
-}
+};

@@ -1,11 +1,15 @@
 /* eslint-disable linebreak-style */
-const { getSingleUser, getUsersCount, addUser } = require('../helper/userHelper');
-const { Users } = require('../models/users1');
-const replacerJson = require('../helper/indexH.js');
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable linebreak-style */
+
+import { getSingleUser, getUsersCount, addUser } from '../helper/userHelper';
+import { Users } from '../models/users1';
+import { replacerJson } from '../helper/indexH';
 
 // Parse incoming requests data
-function signup(req, res) {
-  let errorMessage = '';// use validator
+export const signup = (req, res) => {
+  let errorMessage = ''; // i must use validator to validate inputs 
   if (!req.body.email) errorMessage = 'Email is not defined';
   else if (!req.body.fname)errorMessage = 'THe first name is not defined';
   else if (!req.body.lname)errorMessage = 'The last name is not defined';
@@ -25,7 +29,8 @@ function signup(req, res) {
       addUser(newUser);
       res.status(200).send({
         status: 200,
-        data: JSON.stringify(newUser, replacerJson),
+        data: newUser,
+        replacerJson,
       });
     } else {
       res.status(403).send({
@@ -35,5 +40,4 @@ function signup(req, res) {
     }
   }
   return res;
-}
-module.exports = signup;
+};

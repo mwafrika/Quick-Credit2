@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">77.78% </span>
+        <span class="strong">75% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>14/18</span>
+        <span class='fraction'>12/16</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">80% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">77.78% </span>
+        <span class="strong">75% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>14/18</span>
+        <span class='fraction'>12/16</span>
       </div>
     </div>
     <p class="quiet">
@@ -101,20 +101,18 @@
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
 <a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -144,7 +142,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -158,30 +156,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* eslint-disable linebreak-style */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable radix */
 /* eslint-disable max-len */
 /* eslint-disable linebreak-style */
 &nbsp;
-const loanHelper = require('../helper/loansHelper');
-const LoanRepayment = require('../models/Repayment1');
-const loanRepaymentHelper = require('../helper/repaymentH');
+import { getSingleLoan } from '../helper/loansHelper';
+import { Repayment } from '../models/Repayment1';
+import { loanRepaymentHelper } from '../helper/repaymentH';
 &nbsp;
-function addPayment(req, res) {
-  const loan = loanHelper.getSingleLoan(req.params.loanID);
+&nbsp;
+export const addPayment = (req, res) =&gt; {
+  const loan = getSingleLoan(req.params.loanID);
   if (loan) {
     if (!(loan.isRepaid())) {
       <span class="missing-if-branch" title="if path not taken" >I</span>if (req.body.amount &amp;&amp; (!isNaN(req.body.amount))) {
         const tenorCovered = <span class="cstat-no" title="statement not covered" >Number.parseFloat(req.body.amount) / loan.getPaymentInstallment();</span>
-        const newRepayment = <span class="cstat-no" title="statement not covered" >new LoanRepayment.Repayment(loanRepaymentHelper.getRepaymentCount(), new Date(), loan.id, req.body.amount);</span>
+        const newRepayment = <span class="cstat-no" title="statement not covered" >new Repayment(loanRepaymentHelper.getRepaymentCount(), new Date(), loan.id, req.body.amount);</span>
 <span class="cstat-no" title="statement not covered" >        res.status(200).send({</span>
           status: 200,
-          data: JSON.stringify(loanRepaymentHelper.addNewLoanRepayment(newRepayment)),
+          data: loanRepaymentHelper.addNewLoanRepayment(newRepayment),
         });
       } else {
         res.status(400).send({
@@ -201,13 +196,13 @@ function addPayment(req, res) {
       message: 'There is no loan with such an ID',
     });
   }
-}
-function getRepayments(req, res) {
+};
+export const getRepayments = (req, res) =&gt; {
   const loans = loanRepaymentHelper.getLoanRepayment(req.params.loanID);
   <span class="missing-if-branch" title="else path not taken" >E</span>if (loans) {
     res.status(200).send({
       status: 200,
-      data: JSON.stringify(loans),
+      data: loans,
     });
   } else {
 <span class="cstat-no" title="statement not covered" >    res.status(400).send({</span>
@@ -215,10 +210,6 @@ function getRepayments(req, res) {
       message: 'Please provide a correct loan ID',
     });
   }
-}
-module.exports = {
-  addPayment,
-  getRepayments,
 };
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -226,7 +217,7 @@ module.exports = {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun May 19 2019 09:12:24 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun May 19 2019 23:22:08 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="..\prettify.js"></script>

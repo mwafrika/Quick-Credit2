@@ -1,7 +1,8 @@
 /* eslint-disable linebreak-style */
-function replacer(key, value) {
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable linebreak-style */
+export const replacer = (key, value) => {
   if (key === 'password') return undefined;
   if (key === 'id') return undefined;
   return value;
-}
-module.exports = replacer;
+};

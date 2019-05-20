@@ -1,8 +1,11 @@
 /* eslint-disable linebreak-style */
-const { updateUser, getSingleUser } = require('../helper/userHelper');
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable linebreak-style */
 
+import { updateUser, getSingleUser } from '../helper/userHelper';
 // Parse incoming requests data
-function verify(req, res) {
+
+export const verify = (req, res) => {
   if (req.params.userEmail) {
     const email = req.params.userEmail;
     if (email) {
@@ -14,7 +17,7 @@ function verify(req, res) {
         console.log(user);
         res.status(200).send({
           status: 200,
-          data: JSON.stringify(newUser),
+          data: newUser,
         });
       } else {
         res.status(403).send({
@@ -34,5 +37,4 @@ function verify(req, res) {
       message: 'bad request, please provide valid parameter',
     });
   }
-}
-module.exports = verify;
+};

@@ -4,20 +4,21 @@
 /* eslint-disable max-len */
 /* eslint-disable linebreak-style */
 
-const loanHelper = require('../helper/loansHelper');
-const LoanRepayment = require('../models/Repayment1');
-const loanRepaymentHelper = require('../helper/repaymentH');
+import { getSingleLoan } from '../helper/loansHelper';
+import { Repayment } from '../models/Repayment1';
+import { loanRepaymentHelper } from '../helper/repaymentH';
 
-function addPayment(req, res) {
-  const loan = loanHelper.getSingleLoan(req.params.loanID);
+
+export const addPayment = (req, res) => {
+  const loan = getSingleLoan(req.params.loanID);
   if (loan) {
     if (!(loan.isRepaid())) {
       if (req.body.amount && (!isNaN(req.body.amount))) {
         const tenorCovered = Number.parseFloat(req.body.amount) / loan.getPaymentInstallment();
-        const newRepayment = new LoanRepayment.Repayment(loanRepaymentHelper.getRepaymentCount(), new Date(), loan.id, req.body.amount);
+        const newRepayment = new Repayment(loanRepaymentHelper.getRepaymentCount(), new Date(), loan.id, req.body.amount);
         res.status(200).send({
           status: 200,
-          data: JSON.stringify(loanRepaymentHelper.addNewLoanRepayment(newRepayment)),
+          data: loanRepaymentHelper.addNewLoanRepayment(newRepayment),
         });
       } else {
         res.status(400).send({
@@ -37,13 +38,13 @@ function addPayment(req, res) {
       message: 'There is no loan with such an ID',
     });
   }
-}
-function getRepayments(req, res) {
+};
+export const getRepayments = (req, res) => {
   const loans = loanRepaymentHelper.getLoanRepayment(req.params.loanID);
   if (loans) {
     res.status(200).send({
       status: 200,
-      data: JSON.stringify(loans),
+      data: loans,
     });
   } else {
     res.status(400).send({
@@ -51,8 +52,4 @@ function getRepayments(req, res) {
       message: 'Please provide a correct loan ID',
     });
   }
-}
-module.exports = {
-  addPayment,
-  getRepayments,
 };

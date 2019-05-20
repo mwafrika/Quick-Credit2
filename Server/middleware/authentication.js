@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable consistent-return */
 /* eslint-disable import/no-mutable-exports */
 /* eslint-disable linebreak-style */

@@ -14,18 +14,18 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 
-describe('verify user', () => 
+describe('verify user', () =>
 {
-  it('it should not verify user if mail does not exist', (done) => 
-{
+  it('it should not verify user if mail does not exist', (done) =>
+  {
     chai.request(app.app)
       .patch('/v1/users/mnnjn@gmail.com/verify')
-   
-   .send('')
+
+      .send('')
       .end((err, res) => {
         res.should.have.status(403);
-     
-   console.log(res.body.message);
+
+        console.log(res.body.message);
         done();
       });
   });

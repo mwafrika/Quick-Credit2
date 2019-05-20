@@ -1,10 +1,14 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable linebreak-style */
+/* eslint-disable no-console */
+/* eslint-disable import/extensions */
+/* eslint-disable linebreak-style */
 
-import {getSingleUser} from '../helper/userHelper'
-import replacerJson from '../helper/indexH.js'
-import { getSingleLoan } from '../helper/loansHelper';
+import { getSingleUser } from '../helper/userHelper';
+import replacerJson from '../helper/indexH.js';
 
- export const login = (req,res) =>{
+export const login = (req, res) => {
   if (!req.body.email) {
     res.status(400).send({
       success: 'false',
@@ -23,7 +27,8 @@ import { getSingleLoan } from '../helper/loansHelper';
       if (user[0].password === req.body.password) {
         res.status(200).send({
           status: 200,
-          data: JSON.stringify(user[0], replacerJson),
+          data: user[0],
+          replacerJson,
         });
       } else {
         res.status(403).send({
@@ -39,7 +44,7 @@ import { getSingleLoan } from '../helper/loansHelper';
     }
   }
   return res;
-  }
-  
+};
+
 
 // module.exports = login;

@@ -1,5 +1,7 @@
 /* eslint-disable linebreak-style */
-class Repayment {
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable linebreak-style */
+export class Repayment {
   constructor(id, createOn, loanId, amount) {
     this.id = id;
     this.createOn = createOn;
@@ -40,14 +42,11 @@ class Repayment {
   }
 }
 const defaultRepay = new Repayment(0, '12/3/2019', 4, 500);
-const repay = [defaultRepay];
+export const repay = [defaultRepay];
 repay.push(new Repayment(new Repayment(1, '12/3/2019', 4, 500)));
 repay.push(new Repayment(new Repayment(2, '12/3/2019', 4, 500)));
 repay.push(new Repayment(new Repayment(3, '12/3/2019', 4, 500)));
 repay.push(new Repayment(new Repayment(4, '12/3/2019', 4, 500)));
 repay.push(new Repayment(new Repayment(5, '12/3/2019', 4, 500)));
 
-const repayment = [defaultRepay, repay];
-module.exports = {
-  Repayment, repay, repayment,
-};
+export const repayment = [defaultRepay, repay];
