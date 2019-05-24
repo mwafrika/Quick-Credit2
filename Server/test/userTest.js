@@ -1,7 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable linebreak-style */
-// eslint-disable-next-line no-unused-vars
-
 import express from 'express';
 
 const chai = require('chai');

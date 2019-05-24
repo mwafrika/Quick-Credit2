@@ -1,6 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable linebreak-style */
 export class Repayment {
   constructor(id, createOn, loanId, amount) {
     this.id = id;

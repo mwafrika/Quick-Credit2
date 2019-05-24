@@ -1,5 +1,3 @@
-/* eslint-disable linebreak-style */
-
 import {
   getCurrentLoans, getRepaidLoans, getAllLoans, addUserLoan, getLoanCount,
 } from '../helper/loansHelper';

@@ -1,15 +1,13 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable linebreak-style */
-
 import { getSingleUser, getUsersCount, addUser } from '../helper/userHelper';
 import { Users } from '../models/users1';
 import { replacerJson } from '../helper/indexH';
+import { pool } from '../config/index';
+import { insertTab } from '../DB/queries';
+import jwt from 'jsonwebtoken';
 
-// Parse incoming requests data
+
 export const signup = (req, res) => {
-  let errorMessage = ''; // i must use validator to validate inputs 
+  let errorMessage = '';
   if (!req.body.email) errorMessage = 'Email is not defined';
   else if (!req.body.fname)errorMessage = 'THe first name is not defined';
   else if (!req.body.lname)errorMessage = 'The last name is not defined';
@@ -22,22 +20,31 @@ export const signup = (req, res) => {
       message: errorMessage,
     });
   } else {
-    const user = getSingleUser(req.body.email);
-    if (!user[0]) {
-      const newUser = new Users(getUsersCount, req.body.fname, req.body.lname, req.body.email,
-        req.body.password, 'unverified', false, req.body.address);
-      addUser(newUser);
-      res.status(200).send({
-        status: 200,
-        data: newUser,
-        replacerJson,
-      });
-    } else {
-      res.status(403).send({
-        status: 403,
-        message: 'This mail already exists',
-      });
-    }
+
+    pool.query(insertTab([req.body.email, req.body.fname, req.body.lname, req.body.password, req.body.address, req.body.status, req.body.isAdmin]), (err, resl) => {
+      if (err) {
+        console.log(err);
+      } else if (resl.rowCount > 0) {
+        const {
+ id, firstname, lastname, email 
+} = resl.rows[0];
+
+        const token = jwt.sign(
+          {
+            userID: id,
+            Email: email,
+          },
+          'josmwafrika789',
+          {
+            expiresIn: '24h',
+          },
+        );
+        res.status(200).send({ data: {
+ token, id, firstname, lastname, email 
+} });
+      }
+    });
   }
+
   return res;
 };

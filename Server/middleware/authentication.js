@@ -1,14 +1,10 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable consistent-return */
-/* eslint-disable import/no-mutable-exports */
-/* eslint-disable linebreak-style */
 import jwt from 'jsonwebtoken';
 
 export let auth;
 
 export default (req, res, next) => {
   try {
-    const token = req.headers.authorization.split(' ')[1];
+    const token = req.headers.authorization;
     const decoded = jwt.verify(token, 'josmwafrika789');
     req.userData = decoded;
     auth = decoded;
@@ -20,3 +16,4 @@ export default (req, res, next) => {
     });
   }
 };
+

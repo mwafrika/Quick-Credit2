@@ -15,4 +15,6 @@ script: gulp bg-travisConfig
 
   notifications:
     email:false
+services:
+- postgresql    
 

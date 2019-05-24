@@ -2,6 +2,10 @@
 
 /* eslint-disable linebreak-style */
 
+/* eslint-disable no-unused-expressions */
+
+/* eslint-disable linebreak-style */
+
 /* eslint-disable no-unused-vars */
 
 /* eslint-disable linebreak-style */
@@ -18,6 +22,21 @@ var app = require('../config/index');
 
 var should = chai.should();
 chai.use(chaiHttp);
+var newLoanCorrectData = {
+  userMail: 'mwafrikajosue@gmail.com',
+  tenor: 12,
+  amount: 2000
+};
+var duplicateLoanRequestData = {
+  userMail: 'mwafrikajosue@gmail.com',
+  tenor: 12,
+  amount: 2000
+};
+var FakeUserLoanRequestData = {
+  userMail: 'mwafrikajosue@gmail.com',
+  tenor: 12,
+  amount: 2000
+};
 describe('Apply for only one loan', function () {
   it('it should return the loan with id=0', function (done) {
     chai.request(app.app).get('/v1/loans/0').send('').end(function (err, res) {
@@ -43,8 +62,8 @@ describe('Get current loans spec', function () {
   });
   it('it should return the current loans of mwafrikajosue@gmail.com', function (done) {
     chai.request(app.app).get('/v1/loans/user/mwafrikajosue@gmail.com/?status=approved&repaid=false').send('').end(function (err, res) {
-      res.should.have.status(500);
-      expect(0).to.be.equal(JSON.parse(res.body.data).length);
+      res.should.have.status(200);
+      expect(0).to.be.equal(res.body.data);
       console.log(res.body);
       done();
     });
@@ -60,8 +79,8 @@ describe('Get all repaid loans specs', function () {
   });
   it('it should return all the repaid loans for a specific user', function (done) {
     chai.request(app.app).get('/v1/loans/user/mwafrikajosue@gmail.com/?status=approved&repaid=true').send('').end(function (err, res) {
-      res.should.have.status(500);
-      expect(0).to.be.equal(JSON.parse(res.body.data).length);
+      res.should.have.status(200);
+      expect(0).to.be.equal(res.body.data);
       console.log(res.body);
       done();
     });
@@ -77,28 +96,13 @@ describe('Get all  loans specs', function () {
   });
   it('it should return all loans for a specific user', function (done) {
     chai.request(app.app).get('/v1/loans/user/mwafrikajosue@gmail.com/').send('').end(function (err, res) {
-      res.should.have.status(500);
-      expect(0).to.be.equal(JSON.parse(res.body.data).length);
+      res.should.have.status(200);
+      expect(0).to.be.equal(res.body.data);
       console.log(res.body);
       done();
     });
   });
 });
-var newLoanCorrectData = {
-  userMail: 'mwafrikajosue@gmail.com',
-  tenor: 12,
-  amount: 2000
-};
-var duplicateLoanRequestData = {
-  userMail: 'mwafrikajosue@gmail.com',
-  tenor: 12,
-  amount: 2000
-};
-var FakeUserLoanRequestData = {
-  userMail: 'mwafrikajosue@gmail.com',
-  tenor: 12,
-  amount: 2000
-};
 describe('Post a new loan', function () {
   it('it should a 400 status because of Undefinned values', function (done) {
     chai.request(app.app).post('/v1/loans/').send('').end(function (err, res) {
@@ -109,7 +113,7 @@ describe('Post a new loan', function () {
   });
   it('it should return the new loan data', function (done) {
     chai.request(app.app).post('/v1/loans/').send(newLoanCorrectData).end(function (err, res) {
-      res.should.have.status(500);
+      res.should.have.status(200);
       console.log(res.body);
       done();
     });

@@ -1,8 +1,3 @@
-/* eslint-disable linebreak-style */
-
-/* eslint-disable no-console */
-/* eslint-disable linebreak-style */
-
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 

@@ -1,30 +1,29 @@
 /* eslint-disable linebreak-style */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable linebreak-style */
-
 import { updateUser, getSingleUser } from '../helper/userHelper';
-// Parse incoming requests data
+import { pool } from '../config/index';
+
 
 export const verify = (req, res) => {
   if (req.params.userEmail) {
     const email = req.params.userEmail;
     if (email) {
-      const user = getSingleUser(email)[0];
-      if (user) {
-        user.setStatus('verified');
-        const newUser = updateUser(user);
-        // eslint-disable-next-line no-console
-        console.log(user);
-        res.status(200).send({
-          status: 200,
-          data: newUser,
-        });
-      } else {
-        res.status(403).send({
-          status: 403,
-          message: 'This email does not exist',
-        });
-      }
+      const user = 'SELECT * FROM users WHERE email = $1';
+      pool.query(user, [email], (err, resl) => {
+        if (err) {
+          throw err;
+        }
+        if (resl.rowCount > 0) {
+          res.status(200).send({
+            status: 200,
+            data: resl.rows,
+          });
+        } else {
+          res.status(403).send({
+            status: 403,
+            message: 'This email does not exist',
+          });
+        }
+      });
     } else {
       res.status(400).send({
         status: 400,

@@ -1,51 +1,41 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable no-restricted-globals */
-/* eslint-disable radix */
-/* eslint-disable max-len */
-/* eslint-disable linebreak-style */
-
 import { getSingleLoan } from '../helper/loansHelper';
 import { Repayment } from '../models/Repayment1';
 import { loanRepaymentHelper } from '../helper/repaymentH';
+import { repayM, repayF } from '../DB/queries';
+import { pool } from '../config/index';
 
+// add payment need to remove
 
 export const addPayment = (req, res) => {
-  const loan = getSingleLoan(req.params.loanID);
-  if (loan) {
-    if (!(loan.isRepaid())) {
-      if (req.body.amount && (!isNaN(req.body.amount))) {
-        const tenorCovered = Number.parseFloat(req.body.amount) / loan.getPaymentInstallment();
-        const newRepayment = new Repayment(loanRepaymentHelper.getRepaymentCount(), new Date(), loan.id, req.body.amount);
-        res.status(200).send({
-          status: 200,
-          data: loanRepaymentHelper.addNewLoanRepayment(newRepayment),
-        });
+  if (req.body.amount && (!isNaN(req.body.amount))) {
+    pool.query(repayM([req.params.loanID, req.body.amount]), (err, resl) => {
+      if (err) {
+        console.log(err);
+      } else if (resl.rowCount > 0) {
+        res.status(200).send({ data: resl.rows[0] });
       } else {
-        res.status(400).send({
-          status: 400,
-          message: 'Please provide valid parameters',
-        });
+        console.debug(resl);
       }
-    } else {
-      res.status(401).send({
-        status: 401,
-        message: 'This loan is completly repaid',
-      });
-    }
+    });
   } else {
     res.status(400).send({
       status: 400,
-      message: 'There is no loan with such an ID',
+      message: 'Please provide valid parameters',
     });
   }
 };
 export const getRepayments = (req, res) => {
   const loans = loanRepaymentHelper.getLoanRepayment(req.params.loanID);
   if (loans) {
-    res.status(200).send({
-      status: 200,
-      data: loans,
+
+    pool.query(repayF([]), (err, resl) => {
+      if (err) {
+        console.log(err);
+      } else if (resl.rowCount > 0) {
+        res.status(200).send({ data: resl.rows });
+      }
     });
+
   } else {
     res.status(400).send({
       status: 400,

@@ -1,10 +1,6 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable linebreak-style */
-const jwt = require('Jsonwebtoken');
-
 export class Users {
   constructor(id, firstName, lastName, emails, password, Country, status, isAdmin, address) {
-    // this.jwt = jwt();
+
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -93,12 +89,9 @@ export class Users {
     return true;
   }
 }
-// const users=[];
+
 const admin = new Users(0, 'mwafrika', 'mufungizi', 'mwafrikajosue@gmail.com', '123', 'congo', 'approved', true);
 const user1 = new Users(1, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', '123', 'congo', 'approved', false);
 const user2 = new Users(2, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', '123', 'congo', 'approved', false);
 const user3 = new Users(3, 'mwafrika', 'mufungizi', 'josmwa@gmail.com', '123', 'congo', 'approved', false);
 export const users = [admin, user1, user2, user3];
-// const users = new Users();
-// export default users;
-//  "clean": "rm -rf build && mkdir build"

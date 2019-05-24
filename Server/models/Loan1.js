@@ -1,12 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable no-dupe-class-members */
-/* eslint-disable linebreak-style */
-/* eslint-disable max-len */
-/* eslint-disable semi */
-/* eslint-disable no-unreachable */
-/* eslint-disable no-lone-blocks */
-/* eslint-disable no-undef */
-/* eslint-disable linebreak-style */
 
 export class Loan {
   constructor(id, user, createOn, status, repaid, tenor, amount, paymentInstallment, balance, interest) {

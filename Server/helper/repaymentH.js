@@ -1,8 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable linebreak-style */
-/* eslint-disable no-shadow */
-/* eslint-disable linebreak-style */
 const { repayment } = require('../models/Repayment1');
 const loansHelper = require('./loansHelper');
 
@@ -11,7 +6,6 @@ function updateLoanPayment(loanID, newAmount) {
   loan.setBalance(loan.getBalance() - newAmount);
   return loansHelper.updateLoan(loan);
 }
-// updateLoanPayment(0, loanRepayment.loanRepaymentData[0].getAmount());
 updateLoanPayment(0, repayment[0].getAmount());
 
 function addNewLoanRepayment(newRepayment) {

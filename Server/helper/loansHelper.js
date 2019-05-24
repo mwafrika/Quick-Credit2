@@ -1,9 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable max-len */
-/* eslint-disable linebreak-style */
-/* eslint-disable no-unused-vars */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable linebreak-style */
 import { Loans, myLoans } from '../models/Loan1';
 
 const loans = myLoans;
@@ -13,9 +7,8 @@ export const updateLoan = (loan) => {
 };
 export function getLoanCount() {
   return myLoans.length;
-  // return Loans.length;
 }
-export const filterByUser = (email, myloans) => myloans.filter(email.userMail === email);
+export const filterByUser = (email, myloans) => myLoans.filter(email.userMail === email);
 export const getAllLoans = (email) => {
   if (email) return filterByUser(email, loans);
   return loans;

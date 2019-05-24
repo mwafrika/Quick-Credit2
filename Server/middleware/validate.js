@@ -1,7 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable import/no-unresolved */
-// eslint-disable-next-line linebreak-style
 import Joi from 'joi';
 
 export default class Validator {

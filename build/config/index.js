@@ -15,11 +15,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 /* eslint-disable linebreak-style */
 
-/* eslint-disable import/prefer-default-export */
+/* eslint-disable import/no-extraneous-dependencies */
 
 /* eslint-disable linebreak-style */
 
-/* eslint-disable no-console */
+/* eslint-disable linebreak-style */
 
 /* eslint-disable linebreak-style */
 var app = (0, _express["default"])(); // Parse incoming requests data
