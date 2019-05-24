@@ -15,11 +15,11 @@
   },
   "scripts": {
     "clean": "rm -rf build && mkdir build",
-    "build-babel": "babel -d ./build ./server -s",
+    "build-babel": "babel -d ./build ./Server -s",
     "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha  --exit Server/test/*js ",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "npm run clean && npm run build-babel",
-    "start": " babel-node  Server/config/index.js",
+    "start": " npm run build  && node build/config/index.js",
     "serve": "node dist/config/index"
   },
   "keywords": [],
