@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', router);
-const port = 15000;
+const port = process.env.PORT || 15000;
 export const pool = new Pool({
   connectionString,
 });

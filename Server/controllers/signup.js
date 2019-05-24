@@ -46,6 +46,13 @@ export default function signup(req, res) {
             token, id, firstname, lastname, email,
           },
         });
+      }else{
+        console.log(resl);
+        res.status(500).send({
+          data: {
+            token, id, firstname, lastname, email,
+          },
+        });
       }
     });
   }
