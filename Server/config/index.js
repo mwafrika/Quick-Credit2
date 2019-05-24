@@ -5,8 +5,6 @@ import router from '../routes/route';
 import { repay } from '../models/Repayment1';
 
 export const connectionString = 'postgresql://user1:123@localhost:5432/Quick_credit2';
-
-
 const app = express();
 
 app.use(bodyParser.json());

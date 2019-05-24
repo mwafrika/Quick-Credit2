@@ -1,12 +1,13 @@
+import jwt from 'jsonwebtoken';
 import { getSingleUser, getUsersCount, addUser } from '../helper/userHelper';
 import { Users } from '../models/users1';
 import { replacerJson } from '../helper/indexH';
 import { pool } from '../config/index';
 import { insertTab } from '../DB/queries';
-import jwt from 'jsonwebtoken';
 
 
-export const signup = (req, res) => {
+export default function signup(req, res) {
+  console.log('not connceted');
   let errorMessage = '';
   if (!req.body.email) errorMessage = 'Email is not defined';
   else if (!req.body.fname)errorMessage = 'THe first name is not defined';
@@ -25,9 +26,10 @@ export const signup = (req, res) => {
       if (err) {
         console.log(err);
       } else if (resl.rowCount > 0) {
+        console.log(resl);
         const {
- id, firstname, lastname, email 
-} = resl.rows[0];
+          id, firstname, lastname, email,
+        } = resl.rows[0];
 
         const token = jwt.sign(
           {
@@ -39,12 +41,14 @@ export const signup = (req, res) => {
             expiresIn: '24h',
           },
         );
-        res.status(200).send({ data: {
- token, id, firstname, lastname, email 
-} });
+        res.status(200).send({
+          data: {
+            token, id, firstname, lastname, email,
+          },
+        });
       }
     });
   }
 
   return res;
-};
+}

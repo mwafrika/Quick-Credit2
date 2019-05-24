@@ -1,6 +1,6 @@
 import Router from 'express';
 import express from 'express';
-import { signup } from '../controllers/signup';
+import  signup  from '../controllers/signup';
 import checkAuth from '../middleware/authentication';
 
 import login from '../controllers/login';
