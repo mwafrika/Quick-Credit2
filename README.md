@@ -1,5 +1,6 @@
 
-[![Coverage Status](https://coveralls.io/repos/github/mwafrika/Quick-Credit2/badge.svg?branch=develop)](https://coveralls.io/github/mwafrika/Quick-Credit2?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/mwafrika/Quick-Credit2/badge.svg?branch=develop)](https://coveralls.io/github/mwafrika/Quick-Credit2?branch=develop)  [![Build Status](https://travis-ci.org/mwafrika/Quick-Credit2.svg?branch=develop)](https://travis-ci.org/mwafrika/Quick-Credit2)
+
 QUICK CREDIT
 
 
